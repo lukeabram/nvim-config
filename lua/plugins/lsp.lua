@@ -46,7 +46,19 @@ return {
       vim.lsp.config("pyright", {
         on_attach = on_attach,
         capabilities = capabilities,
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              diagnosticMode = "openFilesOnly",
+              diagnosticSeverityOverrides = {
+                reportMissingTypeStubs = "none",
+              },
+            },
+          },
+        },
       })
+
       vim.lsp.enable("pyright")
     end,
   },

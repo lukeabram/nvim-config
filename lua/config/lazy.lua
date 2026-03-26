@@ -12,6 +12,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+vim.opt.clipboard = "unnamedplus"
+
+vim.keymap.set("n", "<leader>bd", function()
+  vim.cmd("enew | bd #")
+end, { desc = "Close buffer without quitting" })
+
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 require("lazy").setup("plugins")
 
