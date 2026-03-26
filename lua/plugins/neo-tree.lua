@@ -10,17 +10,17 @@ return {
 
   config = function()
     require("neo-tree").setup({
-      close_if_last_window = true,
+      close_if_last_window = true, -- keep sidebar open
       filesystem = {
-        follow_current_file = true,       -- keep this
-        scan_by = "os",                   -- <--- important: disables Git scanning
+        follow_current_file = true,
+        scan_by = "os",
         filtered_items = {
           hide_dotfiles = false,
-          hide_gitignored = false,       -- you can keep this
+          hide_gitignored = false,
         },
       },
       git_status = {
-        enable = false,                  -- explicit, just to be sure
+        enable = false,
       },
     })
 
