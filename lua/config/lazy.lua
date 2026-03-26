@@ -15,8 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 
 vim.keymap.set("n", "<leader>bd", function()
-  vim.cmd("enew | bd #")
-end, { desc = "Close buffer without quitting" })
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  if vim.bo[bufnr].modified then
+    vim.cmd("write")
+  end
+
+  vim.cmd("bnext")
+  vim.cmd("bdelete " .. bufnr)
+end, { desc = "Delete buffer safely" })
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 

@@ -8,9 +8,13 @@ return {
     opts = {
       window = {
         layout = "vertical",
-        width = 0.33,     
-        position = "right",
+        width = 0.23,
       },
     },
+    config = function(_, opts)
+      vim.opt.splitright = true
+      require("CopilotChat").setup(opts)
+    end,
   },
 }
+
