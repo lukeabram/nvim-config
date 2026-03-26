@@ -3,6 +3,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "L3MON4D3/LuaSnip",
+    "zbirenbaum/copilot-cmp"
   },
   config = function()
     local cmp = require("cmp")
@@ -13,6 +14,8 @@ return {
       }),
       sources = {
         { name = "nvim_lsp" },
+        { name = "copilot"  },
+        { name = "luasnip"  },
       },
     })
   end,
