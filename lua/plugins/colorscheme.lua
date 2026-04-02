@@ -1,12 +1,11 @@
-return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+return {{
+  "rebelot/kanagawa.nvim",
   priority = 1000,
   config = function()
-    require("catppuccin").setup({
-      flavour = "mocha", -- default
+    require("kanagawa").setup({
+      theme = "wave", -- wave, dragon, lotus
+      transparent = false,
     })
-
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd("colorscheme kanagawa")
   end,
-}
+}}
