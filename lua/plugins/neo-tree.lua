@@ -22,9 +22,13 @@ return {
       git_status = {
         enable = false,
       },
+      window = {
+        mappings = {
+            ["/"] = "filter_on_submit", 
+        }   
+      }
     })
 
     vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
   end,
 }
-
