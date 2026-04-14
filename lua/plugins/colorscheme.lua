@@ -1,11 +1,12 @@
-return {{
-  "catppuccin/nvim",
-  name = "catppuccin",
-  priority = 1000,
-  config = function()
-    require("catppuccin").setup({
-      transparent_background = false,
-    })
-    vim.cmd("colorscheme catppuccin")
-  end,
-}}
+return { -- Using Lazy
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			require("onedark").setup({
+				style = "deep",
+			})
+			require("onedark").load()
+		end,
+	},
+}
