@@ -32,16 +32,18 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("lua_ls")
-
 			vim.lsp.config("clangd", {
-				cmd = { "clangd" },
-				filetypes = { "c", "cpp", "objc", "objcpp" },
-				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
-				on_attach = on_attach,
-				capabilities = capabilities,
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--query-driver=/usr/bin/clang++,/usr/bin/g++,/usr/bin/c++",
+				},
+				init_options = {
+					fallbackFlags = { "-std=c++20" },
+				},
 			})
-			vim.lsp.enable("clangd")
 
+			vim.lsp.enable("clangd")
 			-- Python
 			vim.lsp.config("pyright", {
 				on_attach = on_attach,

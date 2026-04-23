@@ -1,12 +1,14 @@
-return { -- Using Lazy
+return {
 	{
-		"navarasu/onedark.nvim",
-		priority = 1000, -- make sure to load this before all the other start plugins
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require("onedark").setup({
-				style = "deep",
+			require("vscode").setup({
+				style = "dark", -- or "light"
+				transparent = false,
 			})
-			require("onedark").load()
+			vim.cmd.colorscheme("vscode")
 		end,
 	},
 }
